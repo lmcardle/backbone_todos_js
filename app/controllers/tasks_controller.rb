@@ -1,9 +1,13 @@
 class TasksController < ApplicationController
   respond_to :json
+  respond_to :html, only: [:index]
 
   def index
     @tasks = Task.all
-    render json: @tasks
+    respond_to do |format|
+      format.html
+      format.json { render json: @tasks }
+    end
   end
 
   def create
