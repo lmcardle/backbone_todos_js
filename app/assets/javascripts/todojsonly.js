@@ -6,6 +6,10 @@ window.TD = {
 
   initialize: function (rootE1, tasks) {
     console.log("JS Client Code works. Yay!!!");
-    console.log(tasks);
+    var tasksListView = new TD.Views.TasksListView({
+      collection: tasks
+    });
+
+    $(rootE1).html(tasksListView.render().$el);
   }
 };
