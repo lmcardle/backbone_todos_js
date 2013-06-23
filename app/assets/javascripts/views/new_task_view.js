@@ -12,6 +12,13 @@ TD.Views.NewTaskView = Backbone.View.extend({
   },
 
   submit: function () {
-    console.log("So, I hear you like creating new tasks?");
+    var that = this;
+
+    var task = new TD.Models.Task({
+      title: that.$("input[name=task\\[title\\]]").val()
+    });
+
+    that.collection.add(task);
+    Backbone.history.navigate("#/");
   }
 });
