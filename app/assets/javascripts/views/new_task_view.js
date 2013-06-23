@@ -19,6 +19,7 @@ TD.Views.NewTaskView = Backbone.View.extend({
     });
 
     that.collection.add(task);
+    task.save();
     Backbone.history.navigate("#/");
   }
 });
